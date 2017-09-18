@@ -456,3 +456,41 @@ function astra_primary_content_top() {
 function astra_primary_content_bottom() {
 	do_action( 'astra_primary_content_bottom' );
 }
+
+
+/* Single.php */
+
+/**
+ * Before Single Content
+ */
+function astra_before_content() {
+	do_action( 'astra_before_content' );
+}
+
+/**
+ * After Content
+ */
+function astra_after_content() {
+	do_action( 'astra_after_content' );
+}
+
+/**
+ * Before Loop
+ */
+function astra_before_loop() {
+	do_action( 'astra_before_loop' );
+}
+
+/**
+ * After Loop
+ */
+function astra_after_loop() {
+	do_action( 'astra_after_loop' );
+}
+
+/**
+ * Loop
+ */
+function astra_loop() {
+	do_action( 'astra_loop' );
+}

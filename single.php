@@ -12,7 +12,7 @@
 /* ==================================================== */	
 get_header(); ?>
 
-<?php do_action( 'astra_before_content' ); ?>
+<?php astra_before_content() ?>
 		
 	<div id="primary" <?php astra_primary_class(); ?>>
 
@@ -22,11 +22,11 @@ get_header(); ?>
 
 		<?php 
 
-		do_action( 'astra_before_loop' );
+		astra_before_loop();
 		
-		do_action( 'astra_loop' );
+		astra_loop();
 		
-		do_action( 'astra_after_loop' );
+		astra_after_loop();
 
 		?>
 
@@ -36,6 +36,6 @@ get_header(); ?>
 
 	</div><!-- #primary -->
 	
-<?php do_action( 'astra_after_content' ); ?>
+<?php astra_after_content(); ?>
 
 <?php get_footer(); ?>
