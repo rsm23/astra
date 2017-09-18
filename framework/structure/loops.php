@@ -11,15 +11,21 @@ add_action( 'astra_loop', 'astra_global_loop' );
 
 function astra_global_loop() {
 
-	while ( have_posts() ) : the_post();
+	if ( have_posts() ) :
 
-		get_template_part( 'template-parts/content', 'single' );
+		do_action( 'astra_before_while' );
 
-		// If comments are open or we have at least one comment, load up the comment template.
-		if ( comments_open() || get_comments_number() ) :
-			comments_template();
-		endif;
-		
+		while ( have_posts() ) : the_post();
+			
+			do_action( 'astra_loop_content' );
 
-	endwhile;
+		endwhile;
+
+		do_action( 'astra_after_endwhile' );
+
+	else :
+
+		do_action( 'astra_loop_else' );
+
+	endif;
 }
