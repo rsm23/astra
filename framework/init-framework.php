@@ -10,7 +10,7 @@ function astra_setup() {
 	require_once $structure_path . 'loops.php';
 }
 
-add_action( 'astra_init' );
+add_action( 'astra_init', 'astra_setup' );
 
 do_action( 'astra_init' );
 
