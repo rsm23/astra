@@ -358,6 +358,13 @@ function astra_sidebars_after() {
 }
 
 /**
+ * Sidebars Content
+ */
+function astra_sidebars_content() {
+	do_action( 'astra_sidebars_content' );
+}
+
+/**
  * Semantic <footer> hooks
  *
  * $astra_supports[] = 'footer';

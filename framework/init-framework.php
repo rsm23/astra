@@ -9,6 +9,7 @@ function astra_setup() {
 	$structure_path = $framework_path . 'structure/';
 	require_once $structure_path . 'layout.php';
 	require_once $structure_path . 'loops.php';
+	require_once $structure_path . 'sidebar.php';
 }
 
 add_action( 'astra_init', 'astra_setup' );
