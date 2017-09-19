@@ -13,13 +13,29 @@
  * @since 1.0.0
  */
 
+/**
+ * Page Content.
+ */
+function astra_page_content() {
+	get_template_part( 'template-parts/content', 'page' );
+}
+add_action( 'astra_loop_content', 'astra_page_content' );
+
+/**
+ * Page Comments.
+ */
+function astra_page_comments() {
+
+	// If comments are open or we have at least one comment, load up the comment template.
+	if ( comments_open() || get_comments_number() ) :
+		comments_template();
+	endif;
+}
+add_action( 'astra_loop_content', 'astra_page_comments' );
+
 get_header(); ?>
 
-<?php if ( astra_page_layout() == 'left-sidebar' ) : ?>
-
-	<?php get_sidebar(); ?>
-
-<?php endif ?>
+<?php astra_primary_before(); ?>
 
 	<div id="primary" <?php astra_primary_class(); ?>>
 
@@ -28,20 +44,14 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 			<?php
-			while ( have_posts() ) :
-				the_post();
-?>
 
-				<?php get_template_part( 'template-parts/content', 'page' ); ?>
+			astra_before_loop();
 
-				<?php
-					// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-					endif;
-				?>
+			astra_loop();
 
-			<?php endwhile; ?>
+			astra_after_loop();
+
+			?>
 
 		</main><!-- #main -->
 
@@ -49,10 +59,6 @@ get_header(); ?>
 
 	</div><!-- #primary -->
 
-<?php if ( astra_page_layout() == 'right-sidebar' ) : ?>
-
-	<?php get_sidebar(); ?>
-
-<?php endif ?>
+<?php astra_primary_after(); ?>
 
 <?php get_footer(); ?>
