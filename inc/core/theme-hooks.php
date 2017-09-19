@@ -468,17 +468,17 @@ function astra_primary_content_bottom() {
 /* Single.php */
 
 /**
- * Before Single Content
+ * Before Primary
  */
-function astra_before_content() {
-	do_action( 'astra_before_content' );
+function astra_primary_before() {
+	do_action( 'astra_primary_before' );
 }
 
 /**
- * After Content
+ * After Primary
  */
-function astra_after_content() {
-	do_action( 'astra_after_content' );
+function astra_primary_after() {
+	do_action( 'astra_primary_after' );
 }
 
 /**

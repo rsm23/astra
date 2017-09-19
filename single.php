@@ -32,7 +32,7 @@ add_action( 'astra_loop_content', 'astra_single_comments' );
 
 get_header(); ?>
 
-<?php astra_before_content(); ?>
+<?php astra_primary_before(); ?>
 		
 	<div id="primary" <?php astra_primary_class(); ?>>
 
@@ -56,6 +56,6 @@ get_header(); ?>
 
 	</div><!-- #primary -->
 	
-<?php astra_after_content(); ?>
+<?php astra_primary_after(); ?>
 
 <?php get_footer(); ?>
