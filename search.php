@@ -9,10 +9,10 @@
  */
 
 /**
- * Index Content
+ * Search Content
  */
 function astra_search_content() {
-	
+
 	astra_entry_before(); ?>
 
 	<article itemtype="http://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -25,12 +25,13 @@ function astra_search_content() {
 
 	</article><!-- #post-## -->
 
-	<?php astra_entry_after();
+	<?php
+	astra_entry_after();
 }
 add_action( 'astra_loop_content', 'astra_search_content' );
 
 /**
- * Index Content Else.
+ * Search Content Else.
  */
 function astra_search_content_else() {
 
@@ -38,7 +39,8 @@ function astra_search_content_else() {
 }
 add_action( 'astra_loop_content_else', 'astra_search_content_else' );
 
-get_header(); ?>
+get_header();
+?>
 
 <?php astra_primary_before(); ?>
 
