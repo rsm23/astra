@@ -7,6 +7,7 @@
  * @package Astra
  * @since 1.0.0
  */
+
 ?>
 
 <div itemtype="http://schema.org/WPSideBar" itemscope="itemscope" id="secondary" <?php astra_secondary_class(); ?> role="complementary">
