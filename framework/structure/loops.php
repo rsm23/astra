@@ -15,10 +15,33 @@ function astra_global_loop() {
 
 		do_action( 'astra_content_while_before' );
 
-		while ( have_posts() ) :
-			the_post();
+		while ( have_posts() ) : the_post();
 
-			do_action( 'astra_loop_content' );
+			astra_entry_before();
+
+			?>
+			
+			<article itemtype="http://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			
+			<?php
+
+			astra_entry_top();
+			
+			astra_entry_content_before();
+
+			astra_entry_content();
+			
+			astra_entry_content_after();
+
+			astra_entry_bottom();
+
+			?>
+
+			</article><!-- #post-## -->
+
+			<?php
+
+			astra_entry_after();
 
 		endwhile;
 

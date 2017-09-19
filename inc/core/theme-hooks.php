@@ -284,6 +284,13 @@ function astra_entry_content_after() {
 }
 
 /**
+ * Entry content
+ */
+function astra_entry_content() {
+	do_action( 'astra_entry_content' );
+}
+
+/**
  * Entry Top
  */
 function astra_entry_top() {
