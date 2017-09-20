@@ -47,6 +47,8 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 			add_filter( 'astra_attr_main', array( $this, 'main_attrs' ) );
 			add_filter( 'astra_attr_page', array( $this, 'page_attrs' ) );
 			add_filter( 'astra_attr_content', array( $this, 'content_attrs' ) );
+			add_filter( 'astra_attr_comment', array( $this, 'comment_attrs' ) );
+			add_filter( 'astra_attr_comment-navigation', array( $this, 'comment_navigation_attrs' ) );
 			add_filter( 'astra_attr_article', array( $this, 'article_attrs' ) );
 			add_filter( 'astra_attr_sidebar', array( $this, 'sidebar_attrs' ) );
 			add_filter( 'astra_attr_footer', array( $this, 'footer_attrs' ) );
@@ -78,6 +80,20 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 		public function content_attrs( $attrs ) {
 
 			$attrs['id'] = 'content';
+			return $attrs;
+		}
+
+		public function comment_attrs( $attrs ) {
+
+			$attrs['id'] = 'comments';
+			return $attrs;
+		}
+
+		public function comment_navigation_attrs( $attrs ) {
+
+			$attrs['id'] = 'comment-nav-below';
+			$attrs['role'] = 'navigation';
+			$attrs['aria-label'] = esc_html__( 'Comments Navigation', 'astra' );
 			return $attrs;
 		}
 
