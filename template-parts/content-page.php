@@ -8,11 +8,18 @@
  * @since 1.0.0
  */
 
-add_action( 'astra_page_entry_header_content', 'astra_page_entry_header_the_image', 5 );
-add_action( 'astra_page_entry_header_content', 'astra_page_entry_header_the_title', 10 );
+?>
 
-add_action( 'astra_page_entry_content_link_pages', 'astra_page_entry_content_the_link_pages', 10 );
-add_action( 'astra_page_entry_edit_post_link', 'astra_page_entry_the_edit_post_link', 10 );
+<?php
+
+add_action( 'astra_entry_content_page', 'astra_entry_content_page_template', 10 );
+add_action( 'astra_entry_content', 'astra_page_content', 10 );
+
+add_action( 'astra_entry_page_header_content', 'astra_entry_page_header_the_image', 5 );
+add_action( 'astra_entry_page_header_content', 'astra_entry_page_header_the_title', 10 );
+
+add_action( 'astra_entry_page_content_link_pages', 'astra_entry_page_content_the_link_pages', 10 );
+add_action( 'astra_entry_page_edit_post_link', 'astra_entry_page_the_edit_post_link', 10 );
 
 ?>
 
@@ -22,25 +29,8 @@ add_action( 'astra_page_entry_edit_post_link', 'astra_page_entry_the_edit_post_l
 
 	<?php astra_entry_top(); ?>
 
-	<header class="entry-header <?php astra_entry_header_class(); ?>">
-
-		<?php astra_page_entry_header_content(); ?>
-	</header><!-- .entry-header -->
-
-	<div class="entry-content clear" itemprop="text">
-
-		<?php astra_entry_content_before(); ?>
-
-		<?php the_content(); ?>
-
-		<?php astra_entry_content_after(); ?>
-
-		<?php astra_page_entry_content_link_pages(); ?>
-
-	</div><!-- .entry-content .clear -->
-
-	<?php astra_page_entry_edit_post_link(); ?>
-
+	<?php astra_entry_content_page(); ?>
+	
 	<?php astra_entry_bottom(); ?>
 
 </article><!-- #post-## -->
