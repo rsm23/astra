@@ -8,35 +8,7 @@
  * @since 1.0.0
  */
 
-/**
- * Search Content
- */
-function astra_search_content() {
-
-	astra_entry_before(); ?>
-
-	<article <?php astra_attr( 'article', 'search' ); ?> <?php post_class(); ?>>
-
-		<?php astra_entry_top(); ?>
-
-		<?php astra_entry_content_blog(); ?>
-
-		<?php astra_entry_bottom(); ?>
-
-	</article><!-- #post-## -->
-
-	<?php
-	astra_entry_after();
-}
 add_action( 'astra_loop_content', 'astra_search_content' );
-
-/**
- * Search Content Else.
- */
-function astra_search_content_else() {
-
-	get_template_part( 'template-parts/content', 'none' );
-}
 add_action( 'astra_loop_content_else', 'astra_search_content_else' );
 
 get_header();

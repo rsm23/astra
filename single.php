@@ -10,24 +10,8 @@
 
 /* ==================================================== */
 
-/**
- * Single Content.
- */
-function astra_single_content() {
-	get_template_part( 'template-parts/content', 'single' );
-}
+
 add_action( 'astra_loop_content', 'astra_single_content' );
-
-/**
- * Single Comments.
- */
-function astra_single_comments() {
-
-	// If comments are open or we have at least one comment, load up the comment template.
-	if ( comments_open() || get_comments_number() ) :
-		comments_template();
-	endif;
-}
 add_action( 'astra_loop_content', 'astra_single_comments' );
 
 get_header(); ?>
