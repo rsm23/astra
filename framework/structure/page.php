@@ -36,7 +36,7 @@ function astra_page_entry_header_the_image() {
  */
 function astra_page_entry_header_the_title() {
 	
-	astra_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
+	astra_the_title( '<h1 class="entry-title" ' . astra_attr( 'post-entry-title', '', false ) . '>', '</h1>' );
 }
 
 /**

@@ -26,7 +26,7 @@
 <body <?php astra_attr( 'body' ); ?> <?php body_class(); ?>>
 
 <?php astra_body_top(); ?>
-<div id="page" class="hfeed site">
+<div <?php astra_attr( 'page' ); ?> class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( astra_default_strings( 'string-header-skip-link', false ) ); ?></a>
 	
 	<?php astra_header_before(); ?>
@@ -37,7 +37,7 @@
 
 	<?php astra_content_before(); ?>
 
-	<div id="content" class="site-content">
+	<div <?php astra_attr( 'content' ); ?> class="site-content">
 
 		<div class="ast-container">
 

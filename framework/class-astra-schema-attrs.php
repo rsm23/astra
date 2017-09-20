@@ -48,6 +48,17 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 			if ( $article_schema ) {
 				add_filter( 'astra_attr_article', array( $this, 'article_attrs' ) );
 				add_filter( 'astra_attr_entry-content', array( $this, 'entry_content_attrs' ) );
+				
+				add_filter( 'astra_attr_post-meta-author', array( $this, 'post_meta_author_attrs' ) );
+				add_filter( 'astra_attr_post-meta-author-url', array( $this, 'post_meta_author_url_attrs' ) );
+				add_filter( 'astra_attr_post-meta-author-name', array( $this, 'post_meta_author_name_attrs' ) );
+				add_filter( 'astra_attr_post-entry-title', array( $this, 'post_entry_title_attrs' ) );
+			
+				add_filter( 'astra_attr_post-meta-comment-statistic', array( $this, 'post_meta_comment_statistic_attrs' ) );
+				add_filter( 'astra_attr_post-meta-comment-type', array( $this, 'post_meta_comment_type_attrs' ) );
+				add_filter( 'astra_attr_post-meta-comment-count', array( $this, 'post_meta_comment_count_attrs' ) );
+				
+				add_filter( 'astra_attr_post-meta-posted-date', array( $this, 'post_meta_posted_date_attrs' ) );
 			}
 
 			$sidebar_schema = apply_filters( 'astra_sidebar_schema_enabled', true );
@@ -63,20 +74,6 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 			$header_schema = apply_filters( 'astra_header_schema_enabled', true );
 			if ( $header_schema ) {
 				add_filter( 'astra_attr_header', array( $this, 'header_attrs' ) );
-			}
-
-			$post_meta_author_schema = apply_filters( 'astra_post_meta_author_schema_enabled', true );
-			if ( $post_meta_author_schema ) {
-				add_filter( 'astra_attr_post-meta-author', array( $this, 'post_meta_author_attrs' ) );
-				add_filter( 'astra_attr_post-meta-author-url', array( $this, 'post_meta_author_url_attrs' ) );
-				add_filter( 'astra_attr_post-meta-author-name', array( $this, 'post_meta_author_name_attrs' ) );
-			}
-
-			$post_meta_comment_schema = apply_filters( 'astra_post_meta_comment_schema_enabled', true );
-			if ( $post_meta_comment_schema ) {
-				add_filter( 'astra_attr_post-meta-comment-statistic', array( $this, 'post_meta_comment_statistic_attrs' ) );
-				add_filter( 'astra_attr_post-meta-comment-type', array( $this, 'post_meta_comment_type_attrs' ) );
-				add_filter( 'astra_attr_post-meta-comment-count', array( $this, 'post_meta_comment_count_attrs' ) );
 			}
 
 			$site_identity_schema = apply_filters( 'astra_site_identity_schema_enabled', true );
@@ -151,6 +148,12 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 			return $attrs;
 		}
 
+		public function post_entry_title_attrs( $attrs ) {
+
+			$attrs['itemprop']  = 'headline';
+			return $attrs;
+		}
+
 		public function post_meta_comment_statistic_attrs( $attrs ) {
 
 			$attrs['itemtype']  = 'http://schema.org/InteractionCounter';
@@ -170,6 +173,12 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 
 			$attrs['content']  = absint( wp_count_comments( get_the_ID() )->approved );
 			$attrs['itemprop']  = 'userInteractionCount';
+			return $attrs;
+		}
+
+		public function post_meta_posted_date_attrs( $attrs ) {
+
+			$attrs['itemprop']  = 'datePublished';
 			return $attrs;
 		}
 
@@ -218,10 +227,8 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 
 			// Get itemtype for search results.
 			$itemtype = ( is_search() ) ? 'SearchResultsPage' : $itemtype;
-			// Get the result.
-			$result = apply_filters( 'astra_schema_body_itemtype', $itemtype );
 
-			$attrs['itemtype'] = 'http://schema.org/'. $result;
+			$attrs['itemtype'] = 'http://schema.org/'. $itemtype;
 			$attrs['itemscope'] = 'itemscope';
 			return $attrs;
 		}

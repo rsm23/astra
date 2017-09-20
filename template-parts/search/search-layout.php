@@ -13,7 +13,7 @@
 
 <?php astra_entry_before(); ?>
 
-<article itemtype="http://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article <?php astra_attr( 'article', 'search' ); ?> <?php post_class(); ?>>
 
 	<?php astra_entry_top(); ?>
 

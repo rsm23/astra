@@ -18,11 +18,11 @@ get_header(); ?>
 
 <?php astra_primary_before(); ?>
 		
-	<div id="primary" <?php astra_primary_class(); ?>>
+	<div <?php astra_attr( 'primary', 'single' ); ?> <?php astra_primary_class(); ?>>
 
 		<?php astra_primary_content_top(); ?>
 
-		<main id="main" class="site-main" role="main">
+		<main <?php astra_attr( 'main', 'single' ); ?> class="site-main" >
 
 			<?php
 

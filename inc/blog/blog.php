@@ -176,7 +176,7 @@ if ( ! function_exists( 'astra_blog_post_thumbnai_and_title_order' ) ) {
 						<header class="entry-header">
 							<?php
 							/* translators: 1: Current post link, 2: Current post id */
-							astra_the_post_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>', get_the_id() );
+							astra_the_post_title( sprintf( '<h2 class="entry-title" ' . astra_attr( 'post-entry-title', '', false ) . ' ><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>', get_the_id() );
 							?>
 							
 							<?php astra_blog_get_post_meta(); ?>
@@ -195,7 +195,7 @@ if ( ! function_exists( 'astra_blog_post_thumbnai_and_title_order' ) ) {
 						<div class="ast-single-post-order">
 							
 							<?php
-							astra_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
+							astra_the_title( '<h1 class="entry-title" ' . astra_attr( 'post-entry-title', '', false ) . ' >', '</h1>' );
 
 							astra_single_get_post_meta();
 

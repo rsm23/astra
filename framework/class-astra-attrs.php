@@ -43,6 +43,10 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 		}
 
 		public function init() {
+			add_filter( 'astra_attr_primary', array( $this, 'primary_attrs' ) );
+			add_filter( 'astra_attr_main', array( $this, 'main_attrs' ) );
+			add_filter( 'astra_attr_page', array( $this, 'page_attrs' ) );
+			add_filter( 'astra_attr_content', array( $this, 'content_attrs' ) );
 			add_filter( 'astra_attr_article', array( $this, 'article_attrs' ) );
 			add_filter( 'astra_attr_sidebar', array( $this, 'sidebar_attrs' ) );
 			add_filter( 'astra_attr_footer', array( $this, 'footer_attrs' ) );
@@ -50,6 +54,31 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 			add_filter( 'astra_attr_post-meta-author-url', array( $this, 'post_meta_author_url_attrs' ) );
 			add_filter( 'astra_attr_site-identity-url', array( $this, 'site_identity_url_attrs' ) );
 			add_filter( 'astra_attr_site-navigation', array( $this, 'site_navigation_attrs' ) );
+		}
+
+		public function primary_attrs( $attrs ) {
+
+			$attrs['id'] = 'primary';
+			return $attrs;
+		}
+
+		public function main_attrs( $attrs ) {
+
+			$attrs['id'] = 'main';
+			$attrs['role'] = 'main';
+			return $attrs;
+		}
+
+		public function page_attrs( $attrs ) {
+
+			$attrs['id'] = 'page';
+			return $attrs;
+		}
+
+		public function content_attrs( $attrs ) {
+
+			$attrs['id'] = 'content';
+			return $attrs;
 		}
 
 		public function article_attrs( $attrs ) {
