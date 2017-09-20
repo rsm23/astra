@@ -24,7 +24,7 @@ add_action( 'astra_page_entry_edit_post_link', 'astra_page_entry_the_edit_post_l
 
 	<header class="entry-header <?php astra_entry_header_class(); ?>">
 
-		<?php do_action( 'astra_page_entry_header_content' ); ?>
+		<?php astra_page_entry_header_content(); ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content clear" itemprop="text">
@@ -35,11 +35,11 @@ add_action( 'astra_page_entry_edit_post_link', 'astra_page_entry_the_edit_post_l
 
 		<?php astra_entry_content_after(); ?>
 
-		<?php do_action( 'astra_page_entry_content_link_pages' ); ?>
+		<?php astra_page_entry_content_link_pages(); ?>
 
 	</div><!-- .entry-content .clear -->
 
-	<?php do_action( 'astra_page_entry_edit_post_link' ); ?>
+	<?php astra_page_entry_edit_post_link(); ?>
 
 	<?php astra_entry_bottom(); ?>
 
