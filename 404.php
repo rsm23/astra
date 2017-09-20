@@ -16,7 +16,7 @@ get_header(); ?>
 
 		<?php astra_primary_content_top(); ?>
 
-		<main <?php astra_attr( 'main', 'single' ); ?> class="site-main" >
+		<main <?php astra_attr( 'main', '404' ); ?> class="site-main" >
 
 			<?php astra_entry_before(); ?>
 

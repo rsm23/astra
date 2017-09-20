@@ -12,7 +12,7 @@
 function astra_setup() {
 
 	$framework_path = ASTRA_THEME_DIR . 'framework/';
-	require_once $framework_path . 'comman-functions.php';
+	require_once $framework_path . 'common-functions.php';
 	require_once $framework_path . 'class-astra-attrs.php';
 	require_once $framework_path . 'class-astra-schema-attrs.php';
 
