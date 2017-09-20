@@ -9,7 +9,7 @@
 /**
  * Page Content.
  */
-function astra_page_content() {
+function astra_page_content_template() {
 	get_template_part( 'template-parts/content', 'page' );
 }
 /**
@@ -23,10 +23,25 @@ function astra_page_comments() {
 	endif;
 }
 
+
+/**
+ * Page Content Template.
+ */
+function astra_entry_content_page_template() {
+	get_template_part( 'template-parts/page/page-layout' );
+}
+
+/**
+ * Page Content
+ */
+function astra_page_content() {
+	the_content();
+}
+
 /**
  * Page Featured Image.
  */
-function astra_page_entry_header_the_image() {
+function astra_entry_page_header_the_image() {
 	
 	astra_get_post_thumbnail();
 }
@@ -34,7 +49,7 @@ function astra_page_entry_header_the_image() {
 /**
  * Page Title.
  */
-function astra_page_entry_header_the_title() {
+function astra_entry_page_header_the_title() {
 	
 	astra_the_title( '<h1 class="entry-title" ' . astra_attr( 'post-entry-title', '', false ) . '>', '</h1>' );
 }
@@ -42,7 +57,7 @@ function astra_page_entry_header_the_title() {
 /**
  * Page Link Pages.
  */
-function astra_page_entry_content_the_link_pages() {
+function astra_entry_page_content_the_link_pages() {
 	
 	wp_link_pages(
 		array(
@@ -57,7 +72,7 @@ function astra_page_entry_content_the_link_pages() {
 /**
  * Page Edit Link.
  */
-function astra_page_entry_the_edit_post_link() {
+function astra_entry_page_the_edit_post_link() {
 	astra_edit_post_link(
 
 		sprintf(

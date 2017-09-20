@@ -14,8 +14,7 @@
  */
 
 
-add_action( 'astra_loop_content', 'astra_page_content' );
-add_action( 'astra_loop_content', 'astra_page_comments' );
+add_action( 'astra_loop_content', 'astra_page_content_template' );
 
 get_header(); ?>
 

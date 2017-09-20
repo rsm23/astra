@@ -471,9 +471,6 @@ function astra_primary_content_bottom() {
 	do_action( 'astra_primary_content_bottom' );
 }
 
-
-/* Single.php */
-
 /**
  * Before Primary
  */
@@ -507,4 +504,34 @@ function astra_after_loop() {
  */
 function astra_loop() {
 	do_action( 'astra_loop' );
+}
+
+/* Page.php */
+/**
+ * Entry Content Page
+ */
+function astra_entry_content_page() {
+	do_action( 'astra_entry_content_page' );
+}
+
+
+/**
+ * Page Entry Header Content
+ */
+function astra_entry_page_header_content() {
+	do_action( 'astra_entry_page_header_content' );
+}
+
+/**
+ * Page Entry Content Link Pages
+ */
+function astra_entry_page_content_link_pages() {
+	do_action( 'astra_entry_page_content_link_pages' );
+}
+
+/**
+ * Page Entry Edit Post Link
+ */
+function astra_entry_page_edit_post_link() {
+	do_action( 'astra_entry_page_edit_post_link' );
 }
