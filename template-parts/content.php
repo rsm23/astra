@@ -12,7 +12,7 @@
 
 <?php astra_entry_before(); ?>
 
-<article itemtype="http://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article <?php astra_attr( 'article', 'archive' ); ?> <?php post_class(); ?>>
 
 	<?php astra_entry_top(); ?>
 
@@ -22,7 +22,7 @@
 
 	</header><!-- .entry-header -->
 
-	<div class="entry-content clear" itemprop="text">
+	<div <?php astra_attr( 'entry-content', 'archive' ); ?> class="entry-content clear" >
 
 		<?php astra_entry_content_before(); ?>
 

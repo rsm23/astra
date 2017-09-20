@@ -23,7 +23,7 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php astra_schema_body(); ?> <?php body_class(); ?>>
+<body <?php astra_attr( 'body' ); ?> <?php body_class(); ?>>
 
 <?php astra_body_top(); ?>
 <div id="page" class="hfeed site">

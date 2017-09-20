@@ -117,10 +117,10 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 
 		$byline = sprintf(
 			esc_html( '%s' ),
-			'<a class="url fn n" title="View all posts by ' . esc_attr( get_the_author() ) . '" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" rel="author" itemprop="url"> <span class="author-name" itemprop="name">' . esc_html( get_the_author() ) . '</span> </a>'
+			'<a class="url fn n" ' . astra_attr( 'post-author-url', '', false ) . ' > <span class="author-name" ' . astra_attr( 'post-author-name', '', false ) . ' >' . esc_html( get_the_author() ) . '</span> </a>'
 		);
 
-		$output .= '<span class="posted-by" itemtype="http://schema.org/Person" itemscope="itemscope" itemprop="author"> ' . $byline . '</span>';
+		$output .= '<span class="posted-by" ' . astra_attr( 'post-author', '', false ) . '> ' . $byline . '</span>';
 
 		return apply_filters( 'astra_post_author', $output, $output_filter );
 	}
@@ -191,9 +191,9 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
 				?>
 
 				<!-- Comment Schema Meta -->
-				<span itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
-					<meta itemprop="interactionType" content="http://schema.org/CommentAction" />
-					<meta itemprop="userInteractionCount" content="<?php echo absint( wp_count_comments( get_the_ID() )->approved ); ?>" />
+				<span <?php astra_attr( 'post-meta-comment-statistic' ); ?> >
+					<meta <?php astra_attr( 'post-meta-comment-type' ); ?>  />
+					<meta <?php astra_attr( 'post-meta-comment-count' ); ?> />
 				</span>
 			</span>
 

@@ -10,7 +10,7 @@
 
 ?>
 
-<div itemtype="http://schema.org/WPSideBar" itemscope="itemscope" id="secondary" <?php astra_secondary_class(); ?> role="complementary">
+<div <?php astra_attr( 'sidebar' ); ?> <?php astra_secondary_class(); ?> >
 
 	<div class="sidebar-main">
 
