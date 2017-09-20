@@ -39,7 +39,7 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 		}
 
 		public function __construct() {
-			$this->init();
+			add_action( 'wp', array( $this, 'init' ) );
 		}
 
 		public function init() {
