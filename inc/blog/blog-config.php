@@ -117,10 +117,10 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 
 		$byline = sprintf(
 			esc_html( '%s' ),
-			'<a class="url fn n" ' . astra_attr( 'post-author-url', '', false ) . ' > <span class="author-name" ' . astra_attr( 'post-author-name', '', false ) . ' >' . esc_html( get_the_author() ) . '</span> </a>'
+			'<a class="url fn n" ' . astra_attr( 'post-meta-author-url', '', false ) . ' > <span class="author-name" ' . astra_attr( 'post-meta-author-name', '', false ) . ' >' . esc_html( get_the_author() ) . '</span> </a>'
 		);
 
-		$output .= '<span class="posted-by" ' . astra_attr( 'post-author', '', false ) . '> ' . $byline . '</span>';
+		$output .= '<span class="posted-by" ' . astra_attr( 'post-meta-author', '', false ) . '> ' . $byline . '</span>';
 
 		return apply_filters( 'astra_post_author', $output, $output_filter );
 	}

@@ -47,7 +47,7 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 			add_filter( 'astra_attr_sidebar', array( $this, 'sidebar_attrs' ) );
 			add_filter( 'astra_attr_footer', array( $this, 'footer_attrs' ) );
 			add_filter( 'astra_attr_header', array( $this, 'header_attrs' ) );
-			add_filter( 'astra_attr_post-author-url', array( $this, 'post_author_url_attrs' ) );
+			add_filter( 'astra_attr_post-meta-author-url', array( $this, 'post_meta_author_url_attrs' ) );
 			add_filter( 'astra_attr_site-identity-url', array( $this, 'site_identity_url_attrs' ) );
 			add_filter( 'astra_attr_site-navigation', array( $this, 'site_navigation_attrs' ) );
 		}
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Attrs' ) ) {
 			return $attrs;
 		}
 
-		public function post_author_url_attrs( $attrs ) {
+		public function post_meta_author_url_attrs( $attrs ) {
 
 			/* translators: 1. %s: author */
 			$attrs['title'] = sprintf( __( 'View all posts by %s', 'astra' ), get_the_author() );

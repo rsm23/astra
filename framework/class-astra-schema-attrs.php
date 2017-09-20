@@ -43,23 +43,56 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 		}
 
 		public function init() {
-			$astra_schema = apply_filters( 'astra_schema_enabled', true );
-			if ( $astra_schema ) {
+
+			$article_schema = apply_filters( 'astra_article_schema_enabled', true );
+			if ( $article_schema ) {
 				add_filter( 'astra_attr_article', array( $this, 'article_attrs' ) );
 				add_filter( 'astra_attr_entry-content', array( $this, 'entry_content_attrs' ) );
+			}
+
+			$sidebar_schema = apply_filters( 'astra_sidebar_schema_enabled', true );
+			if ( $sidebar_schema ) {
 				add_filter( 'astra_attr_sidebar', array( $this, 'sidebar_attrs' ) );
+			}
+
+			$footer_schema = apply_filters( 'astra_footer_schema_enabled', true );
+			if ( $footer_schema ) {
 				add_filter( 'astra_attr_footer', array( $this, 'footer_attrs' ) );
+			}
+
+			$header_schema = apply_filters( 'astra_header_schema_enabled', true );
+			if ( $header_schema ) {
 				add_filter( 'astra_attr_header', array( $this, 'header_attrs' ) );
-				add_filter( 'astra_attr_post-author', array( $this, 'post_author_attrs' ) );
-				add_filter( 'astra_attr_post-author-url', array( $this, 'post_author_url_attrs' ) );
-				add_filter( 'astra_attr_post-author-name', array( $this, 'post_author_name_attrs' ) );
+			}
+
+			$post_meta_author_schema = apply_filters( 'astra_post_meta_author_schema_enabled', true );
+			if ( $post_meta_author_schema ) {
+				add_filter( 'astra_attr_post-meta-author', array( $this, 'post_meta_author_attrs' ) );
+				add_filter( 'astra_attr_post-meta-author-url', array( $this, 'post_meta_author_url_attrs' ) );
+				add_filter( 'astra_attr_post-meta-author-name', array( $this, 'post_meta_author_name_attrs' ) );
+			}
+
+			$post_meta_comment_schema = apply_filters( 'astra_post_meta_comment_schema_enabled', true );
+			if ( $post_meta_comment_schema ) {
 				add_filter( 'astra_attr_post-meta-comment-statistic', array( $this, 'post_meta_comment_statistic_attrs' ) );
 				add_filter( 'astra_attr_post-meta-comment-type', array( $this, 'post_meta_comment_type_attrs' ) );
 				add_filter( 'astra_attr_post-meta-comment-count', array( $this, 'post_meta_comment_count_attrs' ) );
+			}
+
+			$site_identity_schema = apply_filters( 'astra_site_identity_schema_enabled', true );
+			if ( $site_identity_schema ) {
 				add_filter( 'astra_attr_site-identity', array( $this, 'site_identity_attrs' ) );
 				add_filter( 'astra_attr_site-identity-name', array( $this, 'site_identity_name_attrs' ) );
 				add_filter( 'astra_attr_site-identity-url', array( $this, 'site_identity_url_attrs' ) );
+			}
+
+			$site_navigation_schema = apply_filters( 'astra_site_navigation_schema_enabled', true );
+			if ( $site_navigation_schema ) {
 				add_filter( 'astra_attr_site-navigation', array( $this, 'site_navigation_attrs' ) );
+			}
+
+			$body_schema = apply_filters( 'astra_body_schema_enabled', true );
+			if ( $body_schema ) {
 				add_filter( 'astra_attr_body', array( $this, 'body_attrs' ) );
 			}
 		}
@@ -98,7 +131,7 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 			return $attrs;
 		}
 
-		public function post_author_attrs( $attrs ) {
+		public function post_meta_author_attrs( $attrs ) {
 
 			$attrs['itemtype']  = 'http://schema.org/Person';
 			$attrs['itemscope'] = 'itemscope';
@@ -106,13 +139,13 @@ if ( ! class_exists( 'Astra_Schema_Attrs' ) ) {
 			return $attrs;
 		}
 
-		public function post_author_url_attrs( $attrs ) {
+		public function post_meta_author_url_attrs( $attrs ) {
 
 			$attrs['itemprop']  = 'url';
 			return $attrs;
 		}
 
-		public function post_author_name_attrs( $attrs ) {
+		public function post_meta_author_name_attrs( $attrs ) {
 
 			$attrs['itemprop']  = 'name';
 			return $attrs;
