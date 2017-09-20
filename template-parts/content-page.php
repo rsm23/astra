@@ -14,44 +14,7 @@ add_action( 'astra_page_entry_header_content', 'astra_page_entry_header_the_titl
 add_action( 'astra_page_entry_content_link_pages', 'astra_page_entry_content_the_link_pages', 10 );
 add_action( 'astra_page_entry_edit_post_link', 'astra_page_entry_the_edit_post_link', 10 );
 
-function astra_page_entry_header_the_image() {
-	
-	astra_get_post_thumbnail();
-}
-
-function astra_page_entry_header_the_title() {
-	
-	astra_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
-}
-
-function astra_page_entry_content_the_link_pages() {
-	
-	wp_link_pages(
-		array(
-			'before'      => '<div class="page-links">' . esc_html( astra_default_strings( 'string-single-page-links-before', false ) ),
-			'after'       => '</div>',
-			'link_before' => '<span class="page-link">',
-			'link_after'  => '</span>',
-		)
-	);
-}
-
-function astra_page_entry_the_edit_post_link() {
-	astra_edit_post_link(
-
-		sprintf(
-			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'astra' ),
-			the_title( '<span class="screen-reader-text">"', '"</span>', false )
-		),
-		'<footer class="entry-footer"><span class="edit-link">',
-		'</span></footer><!-- .entry-footer -->'
-	);
-}
-
 ?>
-
-
 
 <?php astra_entry_before(); ?>
 

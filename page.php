@@ -13,24 +13,8 @@
  * @since 1.0.0
  */
 
-/**
- * Page Content.
- */
-function astra_page_content() {
-	get_template_part( 'template-parts/content', 'page' );
-}
+
 add_action( 'astra_loop_content', 'astra_page_content' );
-
-/**
- * Page Comments.
- */
-function astra_page_comments() {
-
-	// If comments are open or we have at least one comment, load up the comment template.
-	if ( comments_open() || get_comments_number() ) :
-		comments_template();
-	endif;
-}
 add_action( 'astra_loop_content', 'astra_page_comments' );
 
 get_header(); ?>
