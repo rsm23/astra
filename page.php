@@ -19,7 +19,7 @@
 function astra_page_content() {
 	get_template_part( 'template-parts/content', 'page' );
 }
-add_action( 'astra_before_loop', 'astra_page_content' );
+add_action( 'astra_loop_content', 'astra_page_content' );
 
 /**
  * Page Comments.
@@ -31,7 +31,7 @@ function astra_page_comments() {
 		comments_template();
 	endif;
 }
-//add_action( 'astra_loop_content', 'astra_page_comments' );
+add_action( 'astra_loop_content', 'astra_page_comments' );
 
 get_header(); ?>
 
