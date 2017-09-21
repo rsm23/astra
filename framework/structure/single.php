@@ -7,14 +7,26 @@
  */
 
 /**
- * Single Content.
+ * Single Content Main Template
+ *
+ * => Used in files:
+ *
+ * /single.php
+ *
+ * @since 1.0.0
  */
 function astra_single_content_template() {
 	get_template_part( 'template-parts/content', 'single' );
 }
 
 /**
- * Single Comments.
+ * Single Post Comments
+ *
+ * => Used in files:
+ *
+ * /template-parts/content-single.php
+ *
+ * @since 1.0.0
  */
 function astra_single_comments() {
 
@@ -26,7 +38,7 @@ function astra_single_comments() {
 
 
 /**
- * Single post markup
+ * Single post markup ( template part )
  *
  * => Used in files:
  *
@@ -39,14 +51,26 @@ function astra_entry_content_single_template() {
 }
 
 /**
- * Single Content
+ * Single Post Content
+ *
+ * => Used in files:
+ *
+ * /template-parts/single/single-layout.php
+ *
+ * @since 1.0.0
  */
 function astra_single_content() {
 	the_content();
 }
 
 /**
- * Single Edit Link.
+ * Single Edit Post Link
+ *
+ * => Used in files:
+ *
+ * /template-parts/single/single-layout.php
+ *
+ * @since 1.0.0
  */
 function astra_entry_single_the_edit_post_link() {
 	astra_edit_post_link(
@@ -62,7 +86,13 @@ function astra_entry_single_the_edit_post_link() {
 }
 
 /**
- * Single Link Pages.
+ * Single Post Content Pagination
+ *
+ * => Used in files:
+ *
+ * /template-parts/single/single-layout.php
+ *
+ * @since 1.0.0
  */
 function astra_entry_single_content_the_link_pages() {
 	wp_link_pages(
