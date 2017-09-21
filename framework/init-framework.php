@@ -16,6 +16,7 @@ function astra_setup() {
 	$structure_path = $framework_path . 'structure/';
 	require_once $structure_path . '404.php';
 	require_once $structure_path . 'archive.php';
+	require_once $structure_path . 'common.php';
 	require_once $structure_path . 'index.php';
 	require_once $structure_path . 'layout.php';
 	require_once $structure_path . 'loops.php';
