@@ -8,7 +8,11 @@
  * @since 1.0.0
  */
 
-get_header(); ?>
+?>
+
+<?php add_action( 'astra_entry_content_404_page', 'astra_entry_content_404_page_template' ); ?>
+
+<?php get_header(); ?>
 
 <?php astra_primary_before(); ?>
 

@@ -6,6 +6,8 @@
  * @since 1.0.0
  */
 
+add_action( 'astra_loop', 'astra_global_loop' );
+
 /**
  * Global Standard Loop
  *
@@ -36,4 +38,3 @@ function astra_global_loop() {
 
 	endif;
 }
-add_action( 'astra_loop', 'astra_global_loop' );

@@ -8,8 +8,8 @@
  * @since 1.0.0
  */
 
-add_action( 'astra_loop_content', 'astra_search_content' );
-add_action( 'astra_loop_content_else', 'astra_search_content_else' );
+add_action( 'astra_loop_content', 'astra_search_content_template' );
+add_action( 'astra_loop_content_else', 'astra_search_content_else_template' );
 
 get_header();
 ?>
