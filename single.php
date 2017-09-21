@@ -11,8 +11,7 @@
 /* ==================================================== */
 
 
-add_action( 'astra_loop_content', 'astra_single_content' );
-add_action( 'astra_loop_content', 'astra_single_comments' );
+add_action( 'astra_loop_content', 'astra_single_content_template' );
 
 get_header(); ?>
 

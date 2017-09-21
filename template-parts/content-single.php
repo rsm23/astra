@@ -9,6 +9,11 @@
  */
 
 ?>
+<?php
+
+add_action( 'astra_entry_content_single', 'astra_entry_content_single_template', 10 );
+add_action( 'astra_entry_after', 'astra_single_comments' );
+?>
 
 <?php astra_entry_before(); ?>
 
