@@ -14,7 +14,7 @@
  */
 
 /**
- * Index markup
+ * Index markup ( Post Found )
  *
  * => Action hooked in standard loop for markup
  *
@@ -26,7 +26,7 @@
 add_action( 'astra_loop_content', 'astra_index_content_template' );
 
 /**
- * Index markup
+ * Index markup ( Post Not Found )
  *
  * => Action hooked in standard loop else for markup
  *
