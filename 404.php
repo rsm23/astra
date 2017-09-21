@@ -12,7 +12,7 @@ get_header(); ?>
 
 <?php astra_primary_before(); ?>
 
-	<div <?php astra_attr( 'main', '404' ); ?> <?php astra_primary_class(); ?>>
+	<div <?php astra_attr( 'primary', '404' ); ?> <?php astra_primary_class(); ?>>
 
 		<?php astra_primary_content_top(); ?>
 
