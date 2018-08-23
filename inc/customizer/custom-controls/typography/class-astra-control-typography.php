@@ -93,9 +93,15 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		$js_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
+		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
+		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
 
+		wp_enqueue_style( 'astra-select-2-style', $css_uri . 'select2.css', null, ASTRA_THEME_VERSION );
+		wp_enqueue_style( 'astra-typography-style', $css_uri . 'typography.css', null, ASTRA_THEME_VERSION );
+
+		wp_enqueue_script( 'astra-select-2-script', $js_uri . 'select2.js', array( 'jquery' ), ASTRA_THEME_VERSION, true );
 		wp_enqueue_script( 'astra-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
+
 		$astra_typo_localize = array(
 			'inherit' => __( 'Inherit', 'astra' ),
 			'100'     => __( 'Thin 100', 'astra' ),

@@ -7,6 +7,10 @@
  */
 
 ( function( $ ) {
+	$(document).ready(function() {
+		// Apply select2 only to the Base Typography -- Font Family.
+		$('#customize-control-astra-settings-body-font-family select, #customize-control-astra-settings-headings-font-family select').select2();
+	});
 
 	/* Internal shorthand */
 	var api = wp.customize;
