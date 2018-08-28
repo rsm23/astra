@@ -13,41 +13,67 @@
 		// 	// minimumInputLength: 2,
 
 		// });
-
 		// multiple select with AJAX search
-	$('.customize-control-ast-font-family select').select2({
-		ajax: {
-			url: ajaxurl, // AJAX URL is predefined in WordPress admin
-			type: 'post',
-			dataType: 'json',
-			delay: 250, // delay in ms while typing when to perform a AJAX search
-			data: function (params) {
-					return {
-					font_search: params.term, 
-					action: 'astra_get_all_google_fonts_ajax',
-					astra_customize_nonce: astraTypo.nonce
+		$('.customize-control-ast-font-family select').select2({
+			ajax: {
+				url: ajaxurl, // AJAX URL is predefined in WordPress admin
+				type: 'post',
+				dataType: 'json',
+				delay: 250, // delay in ms while typing when to perform a AJAX search
+				data: function (params) {
+						return {
+						font_search: params.term, 
+						action: 'astra_get_all_google_fonts_ajax',
+						astra_customize_nonce: astraTypo.nonce
+						};
+				},
+				processResults: function( data ) {
+					var options = [];
+					var systemFonts = { 
+						text: "System Fonts",
+						element:HTMLOptGroupElement,
+						children:[]
 					};
-			},
-			processResults: function( data ) {
-				var options = [];
-				if ( data ) {
+					var googleFonts = { 
+						text: "Google Fonts", 
+						element:HTMLOptGroupElement,
+						children:[]
+					};
+					
+					if ( data ) {
 
-					// data is the array of arrays, and each of them contains ID and the Label of the option
-					$.each( data, function( index, text ) { // do not forget that "index" is just auto incremented value
-						options.push( { id:index, text:index } );
-					});
-
-				}
-				return {
-					results: options
-				};
+						// data is the array of arrays, and each of them contains ID and the Label of the option
+						$.each( data, function( index, keys ) { // do not forget that "index" is just auto incremented value
+							if( 'undefined' !== typeof( keys.fallback ) ){
+								var insideOption =  {
+									id:index, text:index 
+								};
+								systemFonts.children.push( insideOption );
+							}
+							if( 'undefined' !== typeof( keys.category ) ){
+								var insideOption =   {
+									id: "'" + index + "', " + keys.category, text:index 
+								};
+								googleFonts.children.push( insideOption );
+							}
+						});
+						if( systemFonts.children.length != 0 ){
+							options.push(systemFonts);
+						}
+						if( googleFonts.children.length != 0 ){
+							options.push(googleFonts);
+						}
+					}
+					return {
+						results: options
+					};
+				},
+				cache: true
 			},
-			cache: true
-		},
-		minimumInputLength: 2 // the minimum of symbols to input before perform a search
+			minimumInputLength: 2, // the minimum of symbols to input before perform a search
+			placeholder: 'Search for a Font',
 		});
 	});
-
 	/* Internal shorthand */
 	var api = wp.customize;
 
@@ -78,8 +104,7 @@
 		 */
 		_initFonts: function()
 		{
-			// $( '.customize-control-ast-font-family select' ).each( AstTypography._initFont );
-			$( document ).on( 'change', '.customize-control-ast-font-family select', AstTypography._initFont );
+			$( '.customize-control-ast-font-family select' ).each( AstTypography._initFont );
 		},
 
 		/**
@@ -93,8 +118,7 @@
 		{
 				var select  = $( this ),
 				link    = select.data( 'customize-setting-link' ),
-				weight  = select.data( 'connected-control' ),
-				value = select.val();
+				weight  = select.data( 'connected-control' );			
 
 				// select.on( 'change', function() {
 				// if ( 'undefined' != typeof weight ) {
@@ -129,7 +153,7 @@
 // 				}
 
 		// });
-		},
+		}, 
 
 		/**
 		 * Callback for when a font control changes.
