@@ -35,9 +35,17 @@
 }
 // Added default elementor styling support for related products.
 // Note: Used `.woocommerce` first and then `elementor-widget-woocommerce-product-related` to keep the CSS specificity.
-.woocommerce.woocommerce[class*='rel-up-columns-'] .elementor-widget-woocommerce-product-related .related.products ul.products li.product {
-    width: auto;
-    padding: 0;
-    margin: 0;
-    float: none;
+.woocommerce.woocommerce[class*='rel-up-columns-'] {
+	.elementor-widget-woocommerce-product-related {
+		.related.products {
+			ul.products {
+				li.product {
+				    width: auto;
+				    padding: 0;
+				    margin: 0;
+				    float: none;
+				}
+			}
+		}
+	}
 }
