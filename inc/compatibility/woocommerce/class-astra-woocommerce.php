@@ -778,6 +778,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.below-header-user-select .ast-site-header-cart .widget_shopping_cart a:hover, .ast-above-header-section .ast-site-header-cart .widget_shopping_cart a:hover, .below-header-user-select .ast-site-header-cart .widget_shopping_cart a.remove:hover, .ast-above-header-section .ast-site-header-cart .widget_shopping_cart a.remove:hover' => array(
 					'color' => esc_attr( $link_color ),
 				),
+
+				'.entry-content .alignwide' => array(
+					'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
+				),
 			);
 
 			/* Parse CSS from array() */
