@@ -782,7 +782,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				/**
 				 * Added alignwide support for guternberg wide images
 				 */
-				'.entry-content .alignwide' => array(
+				'.entry-content .alignwide'               => array(
 					'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
 				),
 			);
